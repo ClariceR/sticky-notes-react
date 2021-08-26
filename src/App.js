@@ -3,9 +3,9 @@ import "./App.css";
 function App() {
   return (
     <>
-      <div className="container">
+      <div className="container flex">
         <div className="header__container">
-          <header className="app-header__title flex">
+          <header className="app-header__title">
             <h1 className="logo">
               Super
               <br />
@@ -13,32 +13,41 @@ function App() {
               <br />
               Notes
             </h1>
-            <aside className="app-header__controls">
-              <button className="add-new">+ New Note</button>
+            <aside className="app-header__controls flex">
               <input
                 className="search"
                 type="text"
                 placeholder="Type here to search..."
               />
+              <button className="add-new">+ New Note</button>
             </aside>
           </header>
         </div>
 
-        <ul>
-          <li>
-            <input type="text" placeholder="Title" />
-            <textarea placeholder="Description..." />
-            <span>X</span>
+        <ul className="notes__list">
+          <li className="note effect2">
+            <input className="note__title" type="text" placeholder="Title" />
+            <textarea
+              className="note__description"
+              placeholder="Description..."
+            />
+            <span className="note__delete">X</span>
           </li>
-          <li>
-            <input type="text" placeholder="Title" />
-            <textarea placeholder="Description..." />
-            <span>X</span>
+          <li className="note effect2">
+            <input className="note__title" type="text" placeholder="Title" />
+            <textarea
+              className="note__description"
+              placeholder="Description..."
+            />
+            <span className="note__delete">X</span>
           </li>
-          <li>
-            <input type="text" placeholder="Title" />
-            <textarea placeholder="Description..." />
-            <span>X</span>
+          <li className="note effect2">
+            <input className="note__title" type="text" placeholder="Title" />
+            <textarea
+              className="note__description"
+              placeholder="Description..."
+            />
+            <span className="note__delete">X</span>
           </li>
         </ul>
       </div>

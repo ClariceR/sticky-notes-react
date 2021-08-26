@@ -6,6 +6,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Montserrat", sans-serif;
+  background-color: #F8F8F8;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -16,20 +17,34 @@ textarea {
   resize: none;
 }
 
+.container {
+  width: 100vw;
+  margin: 0 auto;
+}
+
+.header__container {
+  width: 80vw;
+  margin: 0 auto;
+}
+
 .flex {
   display: flex;
   flex-direction: column;
 }
 
-.notes-list {
+.notes__list {
+  width: 80vw;
   display: flex;
   flex-wrap: wrap;
-  padding: 10px;
-  margin: 0;
+  padding: 0;
+  margin: 2rem auto;
+}
+
+.app-header__controls {
+  margin-top: 2rem;
 }
 
 .app-header__title {
-  margin: 10px 20px 0px;
   text-transform: uppercase;
   font-weight: 700;
   line-height: 0.85;
@@ -40,10 +55,6 @@ textarea {
   font-size: 2.625rem;
 }
 
-.app-header__controls {
-  align-items: center;
-}
-
 .search,
 .add-new {
   font-size: 1rem;
@@ -52,12 +63,16 @@ textarea {
 
 .search {
   flex-grow: 1;
-  max-width: 300px;
+  font-family: inherit;
+  max-width: 550px;
+  margin-bottom: 1rem;
+  width: 100%;
 }
 
 .add-new {
+  align-self: flex-start;
   text-transform: uppercase;
-  font-family: "Montserrat", sans-serif;
+  font-family: inherit;
   border-radius: 2rem;
   cursor: pointer;
   font-weight: bold;
@@ -68,30 +83,72 @@ textarea {
 }
 
 .note {
-  font-family: "Permanent Marker", cursive;
-  width: 200px;
-  height: 200px;
-  margin: 10px;
-  background-color: lightyellow;
-  border: 1px solid grey;
-  box-shadow: 2px 2px 3px lightgrey;
-  border-radius: 5px;
+  font-family: inherit;
+  width: 250px;
+  height: 250px;
+  margin: 0.75rem;
+  background-color: #E6E6E6;
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
+/*==================================================
+ * Shadow Effect by Halil İbrahim Nuroğlu
+ * ===============================================*/
+.effect2
+{
+  position: relative;
+}
+.effect2:before, .effect2:after
+{
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #777;
+  -webkit-box-shadow: 0 15px 10px #777;
+  -moz-box-shadow: 0 15px 10px #777;
+  box-shadow: 0 15px 10px #777;
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+.effect2:after
+{
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
+  right: 10px;
+  left: auto;
+}
+/*==================================================
+ * End of Effect 2
+ * ===============================================*/
+
 .note__title,
 .note__description {
-  font-family: "Permanent Marker", cursive;
+  color: #222B5F;
+  font-family: inherit;
   width: 100%;
-  padding: 8px 14px;
+  padding: 1rem;
   background: transparent;
+  border: #E6E6E6;
+  
 }
 
 .note__title {
   font-size: 16px;
   font-weight: bold;
+  background-color: #FBFFA3;
 }
 
 .note__description {
@@ -100,12 +157,13 @@ textarea {
 }
 
 .note__delete {
+  font-family: inherit;
   position: absolute;
   top: 0px;
   right: 0px;
   font-size: 20px;
-  color: lightgrey;
-  padding: 5px;
+  color: #E20A4A;
+  padding: 1rem;
 }
 
 .note__delete:hover {
