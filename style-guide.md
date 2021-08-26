@@ -23,9 +23,9 @@ search: Italic;
 ## Font sizes
 
 heading: 42px / 2.625rem;
-button: 18px / 1.125rem;
+button: 16px / 1rem;
 title: 18px / 1.125rem;
-search: 18px / 1.125rem;
-description: 18px / 1.125rem;
+search: 16px / 1rem;
+description: 16px / 1rem;
 
 
