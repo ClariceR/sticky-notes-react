@@ -67,7 +67,8 @@ textarea {
   max-width: 550px;
   margin-bottom: 1rem;
   width: 100%;
-  border: 2px solid #e20a4a;
+  border: 2px hidden #e20a4a;
+  background-color: #E6E6E6;
 }
 
 .add-new {
