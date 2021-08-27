@@ -153,7 +153,10 @@ textarea {
     align-items: end;
   }
   .notes__list--wrapper {
-    justify-content: start;
+    justify-content: center;
+  }
+  .notes__list {
+    justify-content: flex-start;
   }
 }
 
