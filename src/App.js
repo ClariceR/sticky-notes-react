@@ -32,7 +32,7 @@ class App extends Component {
       if (note.id !== updatedNoteId) {
         return note;
       } else {
-        if (updatedField === 'title') {
+        if (updatedField === "title") {
           note.title = updatedValue;
           return note;
         } else {
@@ -40,17 +40,43 @@ class App extends Component {
           return note;
         }
       }
-    }
+    };
     const updatedNotes = this.state.notes.map(noteToUpdate);
-    this.setState({notes: updatedNotes})
-  }
+    this.setState({ notes: updatedNotes });
+  };
+
+  onSearch = (e) => {
+    const searchText = e.target.value.toLowerCase();
+    const updatedNotes = this.state.notes.map((note) => {
+      if (!searchText) {
+        note.doesMatchSearch = true;
+        return note;
+      } else {
+        const isTitleMatch = note.title.toLowerCase().includes(searchText);
+        const isDescriptionMatch = note.description
+          .toLowerCase()
+          .includes(searchText);
+        const isMatch = isTitleMatch || isDescriptionMatch;
+        note.doesMatchSearch = isMatch;
+        return note;
+      }
+    });
+    this.setState({
+      searchText: searchText,
+      notes: updatedNotes,
+    });
+  };
 
   render() {
     return (
       <>
         <div className="container flex flex--column">
-          <Header searchText={this.state.searchText} addNote={this.addNote} />
-          <NotesList notes={this.state.notes} onType={this.onType}/>
+          <Header
+            searchText={this.state.searchText}
+            addNote={this.addNote}
+            onSearch={this.onSearch}
+          />
+          <NotesList notes={this.state.notes} onType={this.onType} />
         </div>
       </>
     );
