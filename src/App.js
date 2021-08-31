@@ -27,6 +27,13 @@ class App extends Component {
     this.setState({ notes: newNotes });
   };
 
+  deleteNote = (deleteNoteId) => {
+    const updatedNotes = this.state.notes.filter(
+      (note) => note.id !== deleteNoteId
+    );
+    this.setState({ notes: updatedNotes });
+  };
+
   onType = (updatedNoteId, updatedField, updatedValue) => {
     const noteToUpdate = (note) => {
       if (note.id !== updatedNoteId) {
@@ -67,6 +74,19 @@ class App extends Component {
     });
   };
 
+  componentDidUpdate() {
+    const stringfiedNotes = JSON.stringify(this.state.notes);
+    localStorage.setItem("savedNotes", stringfiedNotes);
+  }
+
+  componentDidMount() {
+    const stringfiedNotes = localStorage.getItem("savedNotes");
+    if (stringfiedNotes) {
+      const savedNotes = JSON.parse(stringfiedNotes);
+      this.setState({ notes: savedNotes });
+    }
+  }
+
   render() {
     return (
       <>
@@ -76,7 +96,11 @@ class App extends Component {
             addNote={this.addNote}
             onSearch={this.onSearch}
           />
-          <NotesList notes={this.state.notes} onType={this.onType} />
+          <NotesList
+            notes={this.state.notes}
+            onType={this.onType}
+            deleteNote={this.deleteNote}
+          />
         </div>
       </>
     );

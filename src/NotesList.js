@@ -4,7 +4,7 @@ import Note from "./Note";
 function NotesList(props) {
   const searchMatches = props.notes.filter((note) => note.doesMatchSearch);
   const eachNote = searchMatches.map((note) => (
-    <Note note={note} id={note.id} onType={props.onType} />
+    <Note note={note} id={note.id} onType={props.onType} deleteNote={props.deleteNote}/>
   ));
 
   return (

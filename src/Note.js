@@ -1,16 +1,19 @@
 import React from "react";
 
 function Note(props) {
-    const updateTitle = e => {
-        const updatedValue = e.target.value;
-        const updatedNoteId = props.note.id;
-        props.onType(updatedNoteId, 'title', updatedValue);
-    };
-    const updateDescription = e => {
-        const updatedValue = e.target.value;
-        const updatedNoteId = props.note.id;
-        props.onType(updatedNoteId, 'description', updatedValue);
-    }
+  const updateTitle = (e) => {
+    const updatedValue = e.target.value;
+    const updatedNoteId = props.note.id;
+    props.onType(updatedNoteId, "title", updatedValue);
+  };
+  const updateDescription = (e) => {
+    const updatedValue = e.target.value;
+    const updatedNoteId = props.note.id;
+    props.onType(updatedNoteId, "description", updatedValue);
+  };
+  const removeNote = () => {
+    props.deleteNote(props.note.id);
+  };
   return (
     <li className="note effect2">
       <input
@@ -26,7 +29,9 @@ function Note(props) {
         value={props.note.description}
         onChange={updateDescription}
       />
-      <span className="note__delete">x</span>
+      <span className="note__delete" onClick={removeNote}>
+        x
+      </span>
     </li>
   );
 }
